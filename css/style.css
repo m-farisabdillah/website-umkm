@@ -1,34 +1,153 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   color: #2f2118;
-  background: #f6f0e8;
+  background: #e6e6e6;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
+}
+
+nav {
+  width: 100%;
+  max-width: 920px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+}
+
+nav h1 {
+  margin-left: 24px;
+  font-size: x-large;
+}
+
+.menu {
+  display: flex;
+  width: auto;
+  margin-right: 24px;
+  list-style: none;
+  gap: 16px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 24px;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #2f2118;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+.menu li a {
+  padding: 16px 24px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
 }
 
 .page {
   max-width: 920px;
   margin: 0 auto;
-  padding: 32px 20px;
+  padding: 80px 20px 32px;
 }
 
 .hero {
-  padding: 36px;
+  position: relative;
+  padding: 80px 36px;
   color: white;
-  background: #130ba1;
   border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 150px;
 }
 
-.eyebrow {
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.hero .konten {
+  position: relative;
+  margin-left: 16px;
+}
+
+.hero .konten .eyebrow {
   margin: 0 0 8px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.products {
-  padding-left: 1.2rem;
+.card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 36px;
+  margin: 24px 0;
 }
 
-button {
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 1.2rem;
+  gap: 24px;
+}
+
+.products li {
+  list-style: none;
+  padding: 16px;
+  border: 1.5px solid #111111;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.products li:hover {
+  background-color: #d6d6d6;
+}
+
+.hero .konten button {
   padding: 12px 18px;
   color: #2f2118;
   font-weight: 700;
@@ -36,4 +155,101 @@ button {
   background: #ffd166;
   border: 0;
   border-radius: 999px;
+}
+
+.kontak a {
+  text-decoration: none;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 16px;
+  color: #ffffff;
+  background-color: #25D366;
+  font-weight: bold;
+  cursor: pointer;
+} 
+
+.about-article {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 48px;
+  margin: 24px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-article h1 {
+  font-size: 2.5rem;
+  color: #2f2118;
+  margin-bottom: 24px;
+  border-bottom: 4px solid #ffd166;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.about-article .content p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #4a3c31;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 80px 16px 24px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .about-article {
+    padding: 24px;
+    margin: 16px 0;
+    border-radius: 16px;
+  }
+
+  .about-article h1 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    border-bottom: 3px solid #ffd166;
+  }
+
+  .about-article .content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    margin-right: 0;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li a {
+    display: block;
+    padding: 15px 0;
+  }
 }
