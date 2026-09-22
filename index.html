@@ -11,22 +11,24 @@
 <body>
   <header class="navbar">
     <nav aria-label="Navigasi Utama">
-      <h1>Kopi Nusantara</h1>
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <a href="index.html" class="brand"><span class="brand-icon">☕</span> Kopi Nusantara</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <ul class="menu" id="nav-menu">
-        <li><a href="index.html">Beranda</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Beranda</a></li>
+        <li><a href="produk.html">Produk</a></li>
         <li><a href="tentang.html">Tentang Kami</a></li>
-        <li><a href="#kontak">Kontak Singkat</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="index.html#kontak" class="btn-kontak">Kontak</a></li>
       </ul>
     </nav>
   </header>
   <main class="page">
     <header class="hero">
-      <img src="assets/gambar/gambar_cafe.jpg" alt="Gambar Cafe Kopi Nusantara">
+      <img src="assets/gambar/gambar_cafe.jpg" srcset="assets/gambar/gambar_cafe_sm.jpg 800w, assets/gambar/gambar_cafe.jpg 2752w" alt="Gambar Cafe Kopi Nusantara">
       <div class="konten">
         <p class="eyebrow">UMKM Pekalongan</p>
         <h1>Kopi Nusantara</h1>
@@ -35,30 +37,89 @@
       </div>
     </header>
 
+    <section aria-labelledby="Stat-title" class="card">
+      <article class="stat">
+        <ul>
+          <li>
+            <strong>50+</strong>
+            <h4>Cabang Outlet</h4>
+            <span>Tersebar di berbagai kota di Indonesia.</span>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <strong>10+</strong>
+            <h4>Pilihan Menu</h4>
+            <span>Racikan berkualitas untuk setiap selera.</span>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <strong>5★</strong>
+            <h4>Rating Kepuasan</h4>
+            <span>Pelayanan prima untuk pengalaman terbaik Anda.</span>
+          </li>
+        </ul>
+      </article>
+    </section>
+
     <section aria-labelledby="produk-title" class="card">
       <h2 id="produk-title">Produk Unggulan</h2>
       <ul class="products">
-        <li>Kopi Tubruk Signature <br> Rp18.000</li>
-        <li>Cold Brew Aren <br> Rp22.000</li>
-        <li>Kopi Gula Aren <br> Rp15.000</li>
+        <li>Kopi Tubruk</li>
+        <li>Americano</li>
+        <li>Cappuccino</li>
       </ul>
     </section>
+
     <section aria-labelledby="lokasi-title" class="card">
       <h2 id="lokasi-title">Jam Buka & Lokasi</h2>
-      <article class="lokasi">
-        <p><strong>Jam Buka :</strong> 24 Jam x 7 Hari</p>
-        <p><strong>Lokasi :</strong> Jl Ruwolaku No 02 (Depan UIN Gusdur Pekalongan).</p>
-      </article>
+      <div class="info-dua-kolom">
+        <div class="info-box">
+          <h3>Jam Buka</h3>
+          <p>Senin - Minggu</p>
+          <p><strong>24 Jam x 7 Hari</strong></p>
+        </div>
+        <div class="info-box">
+          <h3>Lokasi</h3>
+          <p>Jl Ruwolaku No 02</p>
+          <p>(Depan UIN Gusdur Pekalongan)</p>
+        </div>
+      </div>
     </section>
-    
+
     <section aria-labelledby="kontak-title" class="card" id="kontak">
-      <h2 id="lokasi-title">Kontak Kami</h2>
-      <article class="kontak">
-        <p><strong>Email :</strong> kopinusantara.pekalongan@gmail.com</p>
-        <p><strong>Hubungi :</strong>  <a href="https://wa.me/6281229014883">WhatsApp Kopi Nusantara</a></p>
-      </article>
+      <h2 id="kontak-title">Kontak Kami</h2>
+      <p>Hubungi kami untuk pesanan dan info:</p>
+      <ul class="kontak-list">
+        <li><strong>Email :</strong> kopinusantara.pekalongan@gmail.com</li>
+        <li><strong>Telepon / WA :</strong> 0812-2901-4883</li>
+      </ul>
+      <a class="tombol-wa" href="https://wa.me/6281229014883">WhatsApp Kopi Nusantara</a>
     </section>
   </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-menu">
+        <h4>Fitur Website</h4>
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Beranda</a></li>
+          <li><a href="produk.html">Produk</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="index.html#kontak" class="btn-kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo">
+        <a href="index.html" class="logo-box">
+          <span class="logo-icon">☕</span>
+          <span class="logo-text">Kopi Nusantara</span>
+        </a>
+        <p class="logo-deskripsi">Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Kopi Nusantara. Semua hak dilindungi.</p>
+  </footer>
   <script src="js/script.js"></script>
 </body>
 

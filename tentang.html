@@ -11,16 +11,18 @@
 <body>
     <header class="navbar">
     <nav aria-label="Navigasi Utama">
-      <h1>Kopi Nusantara</h1>
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <a href="index.html" class="brand"><span class="brand-icon">☕</span> Kopi Nusantara</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <ul class="menu" id="nav-menu">
         <li><a href="index.html">Beranda</a></li>
-        <li><a href="tentang.html">Tentang Kami</a></li>
-        <li><a href="index.html#kontak">Kontak Singkat</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html" class="active" aria-current="page">Tentang Kami</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="index.html#kontak" class="btn-kontak">Kontak</a></li>
       </ul>
     </nav>
   </header>
@@ -29,11 +31,34 @@
         <h1>Kopi Nusantara</h1>
         <div class="content">
             <p>Kopi Nusantara adalah sebuah kedai kopi yang hangat dan penuh kehidupan, terletak strategis tepat di pinggir jalan raya yang ramai. Bangunan kafe ini memiliki daya tarik visual yang kuat melalui sentuhan arsitektur rustik bernuansa kayu, dipadukan dengan deretan lampu bohlam kuning temaram yang menciptakan suasana cozy dan menyambut saat sore menjelang malam. Dengan area tempat duduk terbuka yang memanjang di atas trotoar di bawah kanopi jingga, serta area balkon di lantai dua yang asri, pengunjung ditawarkan pengalaman bersantai sambil menikmati pemandangan dan denyut nadi jalanan kota yang dinamis.</p>
-
+            
             <p>Suasana di kafe ini selalu hidup, dipadati oleh berbagai kalangan pembeli yang duduk bercengkerama di meja-meja kayu sambil menikmati sajian kopi mereka. Deretan sepeda motor yang terparkir di sepanjang jalan dan lalu lalang kendaraan yang ramai justru menambah kesan otentik dari hiruk-pikuk sebuah kedai kopi lokal yang merakyat. Lebih dari sekadar tempat nongkrong, Kopi Nusantara berhasil menciptakan ruang sosial yang nyaman di mana kebersamaan para pengunjung menyatu dengan sempurna bersama ritme jalanan yang sibuk.</p>
         </div>
     </article>
   </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-menu">
+        <h4>Fitur Website</h4>
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Beranda</a></li>
+          <li><a href="produk.html">Produk</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="index.html#kontak" class="btn-kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo">
+        <a href="index.html" class="logo-box">
+          <span class="logo-icon">☕</span>
+          <span class="logo-text">Kopi Nusantara</span>
+        </a>
+        <p class="logo-deskripsi">Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Kopi Nusantara. Semua hak dilindungi.</p>
+  </footer>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
