@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Kopi Nusantara - Website UMKM Tumbuh</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <nav aria-label="Navigasi Utama">
+      <a href="index.html" class="brand"><span class="brand-icon">☕</span> Kopi Nusantara</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="menu" id="nav-menu">
+        <li><a href="index.html" class="active" aria-current="page">Beranda</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html" class="btn-kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="page">
+    <article class="about-article">
+      <h1>Kontak Kopi Nusantara</h1>
+      <div class="form">
+        <form id="form-kontak" action="#" method="post">
+          <fieldset>
+            <legend>Waktu Pemesanan</legend>
+
+            <div class="radio-group">
+              <label for="pagi"><input type="radio" name="waktu" id="pagi" value="pagi" required />Pagi</label>
+
+              <label for="siang"><input type="radio" name="waktu" id="siang" value="siang" />Siang</label>
+
+              <label for="malam"><input type="radio" name="waktu" id="malam" value="malam" />Malam</label>
+            </div>
+          </fieldset>
+
+          <div class="paket-box">
+            <label for="paket">Pilihan Paket</label>
+            <select id="paket" name="paket" required>
+              <option value="">-- Pilih Paket --</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+            <small class="paket-bantuan">Pilih ukuran kopi: Small, Medium, atau Large.</small>
+          </div>
+
+          <label for="nama">Nama</label>
+          <input id="nama" name="nama" type="text" placeholder="Masukan Nama Lengkap" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="nama@gmail.com" required />
+
+          <label for="nomor">WhatsApp</label>
+          <input id="nomor" name="nomor" type="tel" placeholder="0812********" required />
+
+          <label for="pesan">Pesan</label>
+          <textarea id="pesan" name="pesan" placeholder="Berikan Kritik dan Saran" required></textarea>
+
+          <button type="submit">Kirim Pesan</button>
+        </form>
+        <section aria-labelledby="preview-title">
+          <h2 id="preview-title">Preview Data</h2>
+          <pre id="preview-form" aria-live="polite">Data form akan muncul setelah tombol dikirim.</pre>
+        </section>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-menu">
+        <h4>Fitur Website</h4>
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Beranda</a></li>
+          <li><a href="produk.html">Produk</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-logo">
+        <a href="index.html" class="logo-box">
+          <span class="logo-icon">☕</span>
+          <span class="logo-text">Kopi Nusantara</span>
+        </a>
+        <p class="logo-deskripsi">Kopi lokal pilihan untuk teman belajar, bekerja, dan berdiskusi.</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Kopi Nusantara. Semua hak dilindungi.</p>
+  </footer>
+  <script src="js/form.js" defer></script>
+
+</body>
+
+</html>
