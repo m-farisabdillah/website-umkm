@@ -1,3 +1,4 @@
+/* CSS Global */
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
@@ -12,6 +13,11 @@
   --color-success: #2d7a42;
   --color-success-bg: #f0fdf4;
   --spacing-md: 24px;
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
   --radius-md: 16px;
   --radius-lg: 24px;
 }
@@ -30,45 +36,33 @@ body {
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
   max-width: 920px;
   margin: 0 auto;
   padding: 28px 20px 32px;
-}
-
-.card {
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  margin: var(--spacing-md) 0;
 }
 
 .about-article {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   padding: 48px;
-  margin: var(--spacing-md) 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .about-article h1 {
+  display: inline-flex;
   font-size: 2.5rem;
   color: var(--color-primary);
   margin-bottom: var(--spacing-md);
   border-bottom: 4px solid var(--color-secondary);
-  display: inline-block;
   padding-bottom: 8px;
 }
+/* Akhir CSS Global */
 
-.about-article .content p {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: var(--color-text-muted);
-  text-align: justify;
-}
-
+/* CSS Navigasi Bar */
 .navbar {
-  width: 100%;
   background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
@@ -77,17 +71,18 @@ body {
 }
 
 nav {
-  width: 100%;
+  display: flex;
   max-width: 920px;
   min-height: 64px;
   margin: 0 auto;
   padding: 14px 20px;
-  overflow: hidden;
+  justify-content: space-between;
 }
 
 .brand {
-  float: left;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
   text-decoration: none;
   color: var(--color-primary);
   font-size: 1.2rem;
@@ -97,34 +92,35 @@ nav {
 }
 
 .brand-icon {
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 34px;
   height: 34px;
   border-radius: 50%;
   background: var(--color-primary);
   color: var(--color-white);
   font-size: 1.1rem;
-  line-height: 34px;
-  vertical-align: middle;
-  margin-right: 8px;
 }
 
 .menu {
-  float: right;
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
+  gap: var(--gap-sm);
 }
 
 .menu li {
-  display: inline-block;
-  margin-left: 6px;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 }
 
 .hamburger {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-xs);
   width: 40px;
   height: 40px;
   background: transparent;
@@ -135,16 +131,16 @@ nav {
 }
 
 .hamburger span {
-  display: block;
+  display: flex;
   width: 100%;
   height: 2px;
   background-color: var(--color-primary);
   border-radius: 10px;
-  margin: 5px 0;
 }
 
 .menu li a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 9px 15px;
   border-radius: 999px;
   text-decoration: none;
@@ -167,14 +163,15 @@ nav {
   background: var(--color-secondary);
   color: var(--color-primary);
   font-weight: 700;
-  margin-left: 4px;
 }
 
 .menu li a.btn-kontak:hover {
   background: var(--color-secondary-dark);
   color: var(--color-primary);
 }
+/* Akhir CSS Navigasi Bar */
 
+/* CSS Footer */
 .footer {
   background-color: var(--color-primary);
   color: #e8ded1;
@@ -184,21 +181,17 @@ nav {
 }
 
 .footer-container {
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--gap-lg);
   max-width: 920px;
   margin: 0 auto;
-  overflow: hidden;
-}
-
-.footer-container::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .footer-menu {
-  float: left;
-  width: 45%;
+  flex: 1 1 200px;
   padding-left: 32px;
 }
 
@@ -211,13 +204,12 @@ nav {
 }
 
 .footer-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.footer-menu li {
-  margin: 8px 0;
 }
 
 .footer-menu a {
@@ -232,29 +224,28 @@ nav {
 }
 
 .footer-logo {
-  float: right;
-  width: 45%;
+  flex: 1 1 200px;
   text-align: right;
   padding-right: 32px;
 }
 
 .logo-box {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   margin-bottom: 12px;
 }
 
 .logo-icon {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 56px;
   height: 56px;
-  text-align: center;
   font-size: 28px;
-  line-height: 50px;
   background-color: var(--color-secondary);
   border: 3px solid var(--color-white);
   border-radius: 50%;
-  vertical-align: middle;
   margin-right: 12px;
 }
 
@@ -262,11 +253,10 @@ nav {
   font-size: 22px;
   font-weight: bold;
   color: var(--color-white);
-  vertical-align: middle;
 }
 
 .logo-deskripsi {
-  margin: 12px 0 0;
+  margin-top: 12px;
   font-size: 14px;
   color: #c9b8a6;
   max-width: 280px;
@@ -275,6 +265,8 @@ nav {
 }
 
 .footer-copy {
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin: var(--spacing-md) auto 0;
   padding-top: 16px;
@@ -282,7 +274,14 @@ nav {
   font-size: 14px;
   color: #c9b8a6;
   border-top: 1px solid #5a4636;
-  clear: both;
+}
+/* Akhir CSS Footer */
+
+/* Halaman Beranda CSS */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
 }
 
 .hero {
@@ -316,6 +315,9 @@ nav {
 }
 
 .hero .konten {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
   margin-left: 16px;
 }
@@ -327,6 +329,9 @@ nav {
 }
 
 .hero .konten button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 18px;
   color: var(--color-primary);
   font-weight: 700;
@@ -337,24 +342,30 @@ nav {
 }
 
 .stat {
-  text-align: center;
-  font-size: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--gap-md);
 }
 
 .stat ul {
-  display: inline-block;
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
   padding: 0;
-  vertical-align: top;
-  font-size: 1rem;
+  margin: 0;
 }
 
 .stat ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
 }
 
 .stat ul li strong {
-  display: block;
+  display: flex;
+  justify-content: center;
   font-size: xx-large;
 }
 
@@ -363,28 +374,27 @@ nav {
 }
 
 .stat ul li span {
-  display: block;
+  display: flex;
+  justify-content: center;
   font-size: small;
-  margin: 0 auto;
 }
 
 .products {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-md);
   padding: 0;
-  font-size: 0;
 }
 
 .products li {
-  display: inline-block;
-  width: 28%;
-  min-width: 150px;
-  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 250px;
   list-style: none;
   padding: 16px;
-  font-size: 1rem;
   border: 1.5px solid #111111;
   border-radius: var(--radius-md);
-  vertical-align: top;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   background-color: var(--color-white);
 }
@@ -394,35 +404,38 @@ nav {
 }
 
 .info-dua-kolom {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-md);
   margin-top: 16px;
-  font-size: 0;
 }
 
 .info-box {
-  display: inline-block;
-  width: 45%;
-  min-width: 220px;
-  margin: 1%;
-  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  flex: 1 1 300px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 20px;
-  vertical-align: top;
   text-align: left;
 }
 
 .info-box h3 {
-  margin: 0 0 8px;
+  margin: 0;
 }
 
 .info-box p {
-  margin: 4px 0;
+  margin: 0;
   color: var(--color-text-muted);
 }
 
 .kontak-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
   list-style: none;
   padding: 0;
   margin: 16px 0;
@@ -433,11 +446,12 @@ nav {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 12px 16px;
-  margin-bottom: 10px;
 }
 
 .tombol-wa {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   padding: 12px 18px;
   border-radius: 999px;
@@ -449,7 +463,9 @@ nav {
 .tombol-wa:hover {
   background-color: #1da851;
 }
+/* Akhir Halaman Beranda CSS */
 
+/* Halaman Produk CSS */
 table {
   width: 90%;
   margin: 0 auto;
@@ -472,20 +488,31 @@ tbody tr th {
 .sec-color {
   background-color: #e1e1e1;
 }
+/* Akhir Halaman Produk CSS */
 
+/* Halaman Tentang Kami CSS */
+.about-article .content p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--color-text-muted);
+  text-align: justify;
+}
+/* Akhir Halaman Tentang Kami CSS */
+
+/* Halaman Galeri CSS */
 .galeri {
-  text-align: center;
-  font-size: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(10rem, 1fr));
   margin-top: var(--spacing-md);
+  gap: var(--gap-xl);
 }
 
 .galeri figure {
-  display: inline-block;
-  width: 30%;
-  min-width: 180px;
-  margin: 1%;
-  font-size: 1rem;
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  margin: 0;
   background: var(--color-white);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -497,17 +524,16 @@ tbody tr th {
 }
 
 .galeri figure img {
+  display: flex;
   width: 100%;
   height: 220px;
   object-fit: cover;
-  display: block;
 }
 
 .galeri figure figcaption {
   padding: 14px 16px;
   text-align: center;
   font-weight: 600;
-  font-size: 1rem;
   color: var(--color-primary);
   border-top: 3px solid var(--color-secondary);
 }
@@ -515,10 +541,13 @@ tbody tr th {
 .audio audio {
   width: 100%;
 }
+/* Akhir Halaman Galeri CSS */
 
+/* Halaman Kontak CSS */
 .paket-box {
-  width: 100%;
-  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
   padding: 14px 16px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -527,9 +556,7 @@ tbody tr th {
 }
 
 .paket-box label {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 6px;
+  display: flex;
   font-size: 0.95rem;
   font-weight: bold;
   color: var(--color-primary);
@@ -538,7 +565,6 @@ tbody tr th {
 #paket {
   width: 100%;
   padding: 12px 14px;
-  font-size: 1rem;
   color: var(--color-primary);
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
@@ -552,24 +578,24 @@ tbody tr th {
 }
 
 .paket-bantuan {
-  display: block;
-  margin-top: 6px;
+  display: flex;
   font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
 .form {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 form fieldset {
-  margin: 0 0 8px;
+  margin: 0;
   padding: 14px 16px 16px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  text-align: left;
 }
 
 form legend {
@@ -580,14 +606,15 @@ form legend {
 }
 
 form fieldset .radio-group {
-  display: block;
-  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
 }
 
 form fieldset .radio-group label {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 10px 10px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
   padding: 10px 16px;
   font-weight: 600;
   background: var(--color-white);
@@ -597,9 +624,7 @@ form fieldset .radio-group label {
 }
 
 form fieldset .radio-group input {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
+  display: flex;
 }
 
 form fieldset label:hover {
@@ -608,7 +633,9 @@ form fieldset label:hover {
 }
 
 form {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
   width: 100%;
   max-width: 500px;
   margin-top: 16px;
@@ -618,9 +645,7 @@ form {
 }
 
 form label {
-  display: block;
-  margin-top: 16px;
-  margin-bottom: 6px;
+  display: flex;
   font-size: 0.95rem;
   font-weight: bold;
   color: var(--color-primary);
@@ -643,13 +668,9 @@ form textarea {
 }
 
 form button {
-  margin-top: 20px;
   padding: 12px;
   width: 100%;
-  font-size: 1rem;
   font-weight: bold;
-  color: var(--color-primary);
-  background: var(--color-secondary);
   border: 0;
   border-radius: 999px;
   cursor: pointer;
@@ -671,17 +692,14 @@ form button:hover {
 }
 
 .field label {
-  display: block;
+  display: flex;
   margin-bottom: 6px;
 }
 
-fieldset {
-  margin: 0 0 16px;
-}
-
 .status-message {
-  display: block;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
   padding: 16px;
   border-radius: 8px;
   margin-top: 16px;
@@ -689,8 +707,8 @@ fieldset {
 }
 
 .status-message span {
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
 }
 
 .status-success {
@@ -713,3 +731,4 @@ fieldset {
   padding: 14px 16px;
   white-space: pre-wrap;
 }
+/* Akhir Halaman Kontak CSS */
