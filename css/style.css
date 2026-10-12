@@ -1,4 +1,4 @@
-/* CSS Global */
+﻿/* CSS Global */
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
@@ -35,33 +35,40 @@ body {
   overflow-x: hidden;
 }
 
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  margin: 0 0 12px;
+}
+
+p {
+  line-height: 1.7;
+}
+
 .page {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: clamp(16px, 4vw, 24px);
+  width: 100%;
   max-width: 920px;
   margin: 0 auto;
-  padding: 28px 20px 32px;
-}
-
-.about-article {
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 48px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.about-article h1 {
-  display: inline-flex;
-  font-size: 2.5rem;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
-  border-bottom: 4px solid var(--color-secondary);
-  padding-bottom: 8px;
+  padding: clamp(16px, 5vw, 28px) clamp(16px, 4vw, 20px) 32px;
 }
 /* Akhir CSS Global */
 
-/* CSS Navigasi Bar */
+/* CSS Navbar */
 .navbar {
   background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
@@ -72,11 +79,14 @@ body {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   max-width: 920px;
   min-height: 64px;
   margin: 0 auto;
-  padding: 14px 20px;
-  justify-content: space-between;
+  padding: 14px 16px;
 }
 
 .brand {
@@ -103,21 +113,8 @@ nav {
   font-size: 1.1rem;
 }
 
-.menu {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  gap: var(--gap-sm);
-}
-
-.menu li {
-  display: flex;
-  align-items: center;
-}
-
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--gap-xs);
@@ -131,17 +128,39 @@ nav {
 }
 
 .hamburger span {
-  display: flex;
+  display: block;
   width: 100%;
   height: 2px;
   background-color: var(--color-primary);
   border-radius: 10px;
 }
 
+.menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: var(--gap-sm);
+}
+
+.menu.active {
+  display: flex;
+}
+
+.menu li {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
 .menu li a {
   display: inline-flex;
   align-items: center;
-  padding: 9px 15px;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 15px;
   border-radius: 999px;
   text-decoration: none;
   color: var(--color-text-muted);
@@ -169,7 +188,7 @@ nav {
   background: var(--color-secondary-dark);
   color: var(--color-primary);
 }
-/* Akhir CSS Navigasi Bar */
+/* Akhir CSS Navbar */
 
 /* CSS Footer */
 .footer {
@@ -182,17 +201,16 @@ nav {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
   gap: var(--gap-lg);
   max-width: 920px;
   margin: 0 auto;
 }
 
 .footer-menu {
-  flex: 1 1 200px;
-  padding-left: 32px;
+  flex: 1 1 100%;
+  padding-left: 0;
 }
 
 .footer-menu h4 {
@@ -224,9 +242,9 @@ nav {
 }
 
 .footer-logo {
-  flex: 1 1 200px;
-  text-align: right;
-  padding-right: 32px;
+  flex: 1 1 100%;
+  text-align: left;
+  padding-right: 0;
 }
 
 .logo-box {
@@ -260,8 +278,8 @@ nav {
   font-size: 14px;
   color: #c9b8a6;
   max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .footer-copy {
@@ -277,16 +295,16 @@ nav {
 }
 /* Akhir CSS Footer */
 
-/* Halaman Beranda CSS */
+/* CSS Halaman Beranda */
 .card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: clamp(20px, 5vw, 36px);
 }
 
 .hero {
   position: relative;
-  padding: 80px 36px;
+  padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 36px);
   color: var(--color-white);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -299,6 +317,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
   z-index: -2;
 }
@@ -318,8 +337,9 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: clamp(8px, 2vw, 16px);
   position: relative;
-  margin-left: 16px;
+  margin-left: 0;
 }
 
 .hero .konten .eyebrow {
@@ -343,8 +363,9 @@ nav {
 
 .stat {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--gap-md);
 }
 
@@ -360,6 +381,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   list-style: none;
 }
 
@@ -376,21 +398,24 @@ nav {
 .stat ul li span {
   display: flex;
   justify-content: center;
+  text-align: center;
   font-size: small;
 }
 
 .products {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: var(--gap-md);
   padding: 0;
+  margin: 16px 0 0;
 }
 
 .products li {
   display: flex;
   flex-direction: column;
-  flex: 1 1 250px;
+  flex: 1 1 100%;
   list-style: none;
   padding: 16px;
   border: 1.5px solid #111111;
@@ -405,7 +430,8 @@ nav {
 
 .info-dua-kolom {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: var(--gap-md);
   margin-top: 16px;
@@ -415,7 +441,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: var(--gap-sm);
-  flex: 1 1 300px;
+  flex: 1 1 100%;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -463,13 +489,17 @@ nav {
 .tombol-wa:hover {
   background-color: #1da851;
 }
-/* Akhir Halaman Beranda CSS */
+/* Akhir CSS Halaman Beranda */
 
-/* Halaman Produk CSS */
+/* CSS Halaman Produk */
 table {
-  width: 90%;
+  display: block;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 thead tr th {
@@ -488,9 +518,25 @@ tbody tr th {
 .sec-color {
   background-color: #e1e1e1;
 }
-/* Akhir Halaman Produk CSS */
+/* Akhir CSS Halaman Produk */
 
-/* Halaman Tentang Kami CSS */
+/* CSS Halaman Tentang Kami */
+.about-article {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 5vw, 48px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-article h1 {
+  display: inline-flex;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 4px solid var(--color-secondary);
+  padding-bottom: 8px;
+}
+
 .about-article .content p {
   line-height: 1.8;
   font-size: 1.1rem;
@@ -498,20 +544,20 @@ tbody tr th {
   color: var(--color-text-muted);
   text-align: justify;
 }
-/* Akhir Halaman Tentang Kami CSS */
+/* Akhir CSS Halaman Tentang Kami */
 
-/* Halaman Galeri CSS */
+/* CSS Halaman Galeri */
 .galeri {
   display: grid;
-  grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  grid-template-columns: 1fr;
   margin-top: var(--spacing-md);
-  gap: var(--gap-xl);
+  gap: var(--gap-md);
 }
 
 .galeri figure {
   display: flex;
   flex-direction: column;
-  min-width: 150px;
+  min-width: 0;
   margin: 0;
   background: var(--color-white);
   border-radius: var(--radius-md);
@@ -524,9 +570,11 @@ tbody tr th {
 }
 
 .galeri figure img {
-  display: flex;
+  display: block;
   width: 100%;
-  height: 220px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
@@ -540,10 +588,11 @@ tbody tr th {
 
 .audio audio {
   width: 100%;
+  max-width: 100%;
 }
-/* Akhir Halaman Galeri CSS */
+/* Akhir CSS Halaman Galeri */
 
-/* Halaman Kontak CSS */
+/* CSS Halaman Kontak */
 .paket-box {
   display: flex;
   flex-direction: column;
@@ -586,7 +635,7 @@ tbody tr th {
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
 }
 
@@ -607,7 +656,8 @@ form legend {
 
 form fieldset .radio-group {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   gap: var(--gap-sm);
 }
 
@@ -654,6 +704,7 @@ form label {
 form input,
 form textarea {
   width: 100%;
+  max-width: 100%;
   padding: 12px 14px;
   font-size: medium;
   color: var(--color-primary);
@@ -731,4 +782,137 @@ form button:hover {
   padding: 14px 16px;
   white-space: pre-wrap;
 }
-/* Akhir Halaman Kontak CSS */
+/* Akhir CSS Halaman Kontak */
+
+/* CSS Responsive */
+@media (min-width: 600px) {
+  nav {
+    padding: 14px 20px;
+  }
+
+  .galeri {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-lg);
+  }
+
+  .galeri figure img {
+    height: 220px;
+    aspect-ratio: auto;
+  }
+
+  .stat {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .products {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .products li {
+    flex: 1 1 250px;
+  }
+
+  .info-dua-kolom {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .info-box {
+    flex: 1 1 300px;
+  }
+
+  form fieldset .radio-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-menu {
+    flex: 1 1 200px;
+    padding-left: 16px;
+  }
+
+  .footer-logo {
+    flex: 1 1 200px;
+    text-align: right;
+    padding-right: 16px;
+  }
+
+  .logo-deskripsi {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  nav {
+    flex-wrap: nowrap;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    align-items: center;
+    gap: var(--gap-sm);
+  }
+
+  .menu li {
+    width: auto;
+  }
+
+  .menu li a {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .hero .konten {
+    margin-left: 16px;
+  }
+
+  .galeri {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-xl);
+  }
+
+  .galeri figure {
+    min-width: 150px;
+  }
+
+  table {
+    display: table;
+    width: 90%;
+    white-space: normal;
+    overflow-x: visible;
+  }
+
+  .form {
+    align-items: center;
+  }
+
+  .footer-menu {
+    padding-left: 32px;
+  }
+
+  .footer-logo {
+    padding-right: 32px;
+  }
+
+  .logo-deskripsi {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+/* Akhir CSS Responsive */
