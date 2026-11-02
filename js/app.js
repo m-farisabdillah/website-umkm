@@ -33,7 +33,73 @@ let daftarProduk = [
     }
 ];
 
-console.table(daftarProduk);
+function formatRupiah(nilai) {
+    let angkaTeks = nilai.toLocaleString("id-ID");
+    return "Rp " + angkaTeks;
+}
+
+function statusStok(stok) {
+    if (stok === 0) {
+        return "Habis";
+    }
+    return "Tersedia (sisa " + stok + ")";
+}
+
+function hitungHargaPromo(produk) {
+    if (produk.diskon === 0) {
+        return produk.harga;
+    }
+
+    let hargaDiskon = produk.harga - (produk.harga * produk.diskon / 100);
+    let hargaBulat = Math.round(hargaDiskon);
+    return hargaBulat;
+}
+
+function buatKartuProduk(produk) {
+    let hargaFinal = hitungHargaPromo(produk);
+
+    let teksBadge = "";
+    if (produk.unggulan === true) {
+        teksBadge = `<span class="badge-unggulan">Unggulan</span>`;
+    }
+
+    let teksHarga = "";
+    if (produk.diskon > 0) {
+        teksHarga = `<p><s>${formatRupiah(produk.harga)}</s> <strong>${formatRupiah(hargaFinal)}</strong> (Diskon ${produk.diskon}%)</p>`;
+    } else {
+        teksHarga = `<p><strong>${formatRupiah(hargaFinal)}</strong></p>`;
+    }
+
+    let teksStok = "";
+    if (produk.stok === 0) {
+        teksStok = `<p class="stok-habis"><strong>${statusStok(produk.stok)}!</strong></p>`;
+    } else {
+        teksStok = `<p>Stok ${statusStok(produk.stok)}</p>`;
+    }
+
+    let kartu = `
+        <div class="kartu-produk">
+            <h3>${produk.nama} ${teksBadge}</h3>
+            <p>Kategori: ${produk.kategori}</p>
+            ${teksHarga}
+            ${teksStok}
+        </div>
+    `;
+
+    return kartu;
+}
+
+function catatProdukKeConsole() {
+    console.log("=== Catatan Daftar Produk ===");
+
+    daftarProduk.forEach(function (produkSatu) {
+        console.log(
+            formatRupiah(hitungHargaPromo(produkSatu)) + " | " +
+            statusStok(produkSatu.stok) + " | " +
+            produkSatu.nama
+        );
+    });
+}
 
 function tampilkanProduk() {
     let wadahProduk = document.getElementById("produk-dinamis");
@@ -42,46 +108,42 @@ function tampilkanProduk() {
         return;
     }
 
-    let teksHTML = "";
+    let produkSiapJual = daftarProduk.filter(function (produkCek) {
+        return produkCek.stok > 0;
+    });
 
-    for (const produkSatu of daftarProduk) {
-        let hargaJadi = produkSatu.harga;
-        if (produkSatu.diskon > 0) {
-            hargaJadi = produkSatu.harga - (produkSatu.harga * produkSatu.diskon / 100);
-        }
+    let daftarHTML = produkSiapJual.map(function (produkSatu) {
+        return buatKartuProduk(produkSatu);
+    });
 
-        let teksBadge = "";
-        if (produkSatu.unggulan === true) {
-            teksBadge = `<span class="badge-unggulan">Unggulan</span>`;
-        }
-
-        let teksHarga = "";
-        if (produkSatu.diskon > 0) {
-            teksHarga = `
-                <p><s>Rp ${produkSatu.harga}</s> <strong>Rp ${hargaJadi}</strong> (Diskon ${produkSatu.diskon}%)</p>
-            `;
-        } else {
-            teksHarga = `<p><strong>Rp ${hargaJadi}</strong></p>`;
-        }
-
-        let teksStok = "";
-        if (produkSatu.stok === 0) {
-            teksStok = `<p class="stok-habis"><strong>Stok Habis!</strong></p>`;
-        } else {
-            teksStok = `<p>Stok: ${produkSatu.stok}</p>`;
-        }
-
-        teksHTML = teksHTML + `
-            <div class="kartu-produk">
-                <h3>${produkSatu.nama} ${teksBadge}</h3>
-                <p>Kategori: ${produkSatu.kategori}</p>
-                ${teksHarga}
-                ${teksStok}
-            </div>
-        `;
-    }
+    let teksHTML = daftarHTML.join("");
 
     wadahProduk.innerHTML = teksHTML;
 }
 
-tampilkanProduk();
+function tampilkanProdukUnggulan() {
+    let wadahUnggulan = document.getElementById("produk-unggulan");
+
+    if (wadahUnggulan === null) {
+        return;
+    }
+
+    let produkUnggulan = daftarProduk.find(function (produkCek) {
+        return produkCek.unggulan === true;
+    });
+
+    if (produkUnggulan === undefined) {
+        wadahUnggulan.innerHTML = "<p>Belum ada produk unggulan hari ini.</p>";
+        return;
+    }
+
+    wadahUnggulan.innerHTML = buatKartuProduk(produkUnggulan);
+}
+
+let wadahCek = document.getElementById("produk-dinamis");
+
+if (wadahCek !== null && daftarProduk.length > 0) {
+    catatProdukKeConsole();
+    tampilkanProdukUnggulan();
+    tampilkanProduk();
+}

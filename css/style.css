@@ -563,6 +563,10 @@ tbody tr th {
 .stok-habis {
   color: #c9302c;
 }
+#produk-unggulan {
+  margin: 5px 0;
+}
+
 /* Akhir CSS Produk Dinamis */
 
 /* CSS Halaman Tentang Kami */
