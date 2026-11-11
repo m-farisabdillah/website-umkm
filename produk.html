@@ -203,9 +203,19 @@
             </table>
         </article>
         <section>
-            <h3>Produk Unggulan Hari Ini</h3>
+            <h2>Produk Unggulan Hari Ini</h2>
             <div id="produk-unggulan"></div>
+
             <h2>Daftar Produk Kami</h2>
+            <p id="produk-status" class="status-produk">Memuat produk...</p>
+
+            <div class="filters" aria-label="Filter produk">
+                <button type="button" class="filter-button is-active" data-filter="Semua">Semua</button>
+                <button type="button" class="filter-button" data-filter="Panas">Panas</button>
+                <button type="button" class="filter-button" data-filter="Dingin">Dingin</button>
+                <button type="button" class="filter-button" data-filter="Snack">Snack</button>
+            </div>
+
             <div id="produk-dinamis"></div>
         </section>
     </main>
