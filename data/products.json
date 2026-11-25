@@ -1,0 +1,42 @@
+[
+  {
+    "id": "americano",
+    "name": "Americano",
+    "category": "Panas",
+    "price": 15000,
+    "stock": 10,
+    "featured": false,
+    "discount": 10,
+    "description": "Espresso disiram air panas untuk rasa kopi hitam yang kuat dan menyegarkan."
+  },
+  {
+    "id": "kopi-susu-gula-aren",
+    "name": "Kopi Susu Gula Aren",
+    "category": "Dingin",
+    "price": 17000,
+    "stock": 20,
+    "featured": true,
+    "discount": 9,
+    "description": "Kopi dengan susu creamy dan manis alami gula aren yang disajikan dingin."
+  },
+  {
+    "id": "cappuccino",
+    "name": "Cappuccino",
+    "category": "Dingin",
+    "price": 20000,
+    "stock": 30,
+    "featured": true,
+    "discount": 8,
+    "description": "Perpaduan espresso, susu, dan busa lembut dengan taburan coklat yang nikmat."
+  },
+  {
+    "id": "kopi-pandan",
+    "name": "Kopi Pandan",
+    "category": "Panas",
+    "price": 19000,
+    "stock": 0,
+    "featured": false,
+    "discount": 7,
+    "description": "Kopi panas beraroma pandan yang harum dengan rasa manis dan lembut."
+  }
+]

@@ -207,7 +207,8 @@
             <div id="produk-unggulan"></div>
 
             <h2>Daftar Produk Kami</h2>
-            <p id="produk-status" class="status-produk">Memuat produk...</p>
+            <p id="catalog-status" class="catalog-status" aria-live="polite">Produk belum dimuat.</p>
+            <p id="produk-ringkasan">Menunggu data produk.</p>
 
             <div class="filters" aria-label="Filter produk">
                 <button type="button" class="filter-button is-active" data-filter="Semua">Semua</button>
@@ -216,7 +217,7 @@
                 <button type="button" class="filter-button" data-filter="Snack">Snack</button>
             </div>
 
-            <div id="produk-dinamis"></div>
+            <div id="produk-dinamis" class="js-product-grid"></div>
         </section>
     </main>
     <footer class="footer">
@@ -242,7 +243,7 @@
         <p class="footer-copy">© 2026 Kopi Nusantara. Semua hak dilindungi.</p>
     </footer>
     <script src="js/script.js"></script>
-    <script src="js/app.js" defer></script>
+    <script type="module" src="js/catalog-api.js"></script>
 </body>
 
 </html>
